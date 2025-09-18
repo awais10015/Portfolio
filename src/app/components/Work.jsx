@@ -26,9 +26,9 @@ const Work = () => {
             href="https://line-one-eosin.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full"
+            className="w-full flex-[1.3]"
           >
-            <div className="w-full cursor-pointer bg-gray-100 p-5 rounded-4xl flex-[1.3] flex gap-2 flex-col items-start group overflow-hidden">
+            <div className="w-full cursor-pointer bg-gray-100 p-5 rounded-4xl  flex gap-2 flex-col items-start group overflow-hidden">
               <div className="w-full flex flex-col gap-2">
                 <div className="w-full flex justify-between">
                   <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">
@@ -63,10 +63,10 @@ const Work = () => {
             href="https://iphone-clone-dun.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full"
+            className="w-full flex-[1] cursor-pointer bg-gray-100 rounded-4xl  flex gap-2 flex-col items-start justify-evenly group overflow-hidden"
           >
             {/* Right Card */}
-            <div className="w-full cursor-pointer bg-gray-100 p-5 rounded-4xl flex-[1] flex gap-2 flex-col items-start justify-evenly group overflow-hidden">
+            <div className="w-full h-full cursor-pointer bg-gray-100 p-5 rounded-4xl  flex gap-2 flex-col items-start justify-evenly group overflow-hidden">
               <div className="w-full flex flex-col gap-2">
                 <div className="w-full flex justify-between">
                   <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl  font-bold">
@@ -104,7 +104,7 @@ const Work = () => {
             href="https://sundown-opal.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full"
+            className="w-full flex-[1] cursor-pointer bg-gray-100 rounded-4xl  flex gap-2 flex-col items-start justify-evenly group overflow-hidden"
           >
             {/* Left Card */}
             <div className="w-full cursor-pointer bg-gray-100 p-5 rounded-4xl flex-[1] flex gap-2 flex-col items-start justify-evenly group overflow-hidden">
@@ -141,10 +141,10 @@ const Work = () => {
             href="https://healix-inky.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full"
+            className="w-full flex-[1.3]"
           >
             {/* Right Card */}
-            <div className="w-full cursor-pointer bg-gray-100 p-5 rounded-4xl flex-[1.3] flex gap-2 flex-col items-start justify-between group overflow-hidden">
+            <div className="w-full cursor-pointer bg-gray-100 p-5 rounded-4xl  flex gap-2 flex-col items-start justify-between group overflow-hidden">
               <div className="w-full flex flex-col gap-2">
                 <div className="w-full flex justify-between">
                   <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl  font-bold">
@@ -182,10 +182,10 @@ const Work = () => {
             href="https://mystore-seven-chi.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full"
+            className="w-full flex-[1.3]"
           >
             {/* Left Card */}
-            <div className="w-full cursor-pointer bg-gray-100 p-5 rounded-4xl flex-[1.3] flex gap-2 flex-col items-start group overflow-hidden">
+            <div className="w-full cursor-pointer bg-gray-100 p-5 rounded-4xl flex gap-2 flex-col items-start group overflow-hidden">
               <div className="w-full flex flex-col gap-2">
                 <div className="w-full flex justify-between">
                   <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl  font-bold">
@@ -219,7 +219,7 @@ const Work = () => {
             href="https://daily-book-eta.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full"
+            className="w-full flex-[1] cursor-pointer bg-gray-100 rounded-4xl  flex gap-2 flex-col items-start justify-evenly group overflow-hidden"
           >
             {/* Right Card */}
             <div className="w-full cursor-pointer bg-gray-100 p-5 rounded-4xl flex-[1] flex gap-2 flex-col items-start justify-evenly group overflow-hidden">
