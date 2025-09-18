@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 400 400"
+     width="400" height="400"
+     preserveAspectRatio="xMidYMid meet"
+     role="img" aria-label="Decorative stroked curves icon">
+  <defs>
+    <clipPath id="lottie_clip"><rect width="400" height="400" x="0" y="0" /></clipPath>
+  </defs>
+
+  <g clip-path="url(#lottie_clip)">
+    <!-- Group 1 -->
+    <g transform="matrix(-1 0 0 -1 201.388 324.897)" opacity="1">
+      <g transform="matrix(3.01554179 -0.29870558 0.29870558 3.01554179 0 0)" opacity="1">
+        <path d="M50.518 0.277
+                 C42.642 3.136 34.427 0.405 17.687 -0.136
+                 C11.624 -0.332 7.582 1.035 1.014 0.691
+                 C-11.165 0.053 -16.764 -1.066 -29.299 -1.487
+                 C-38.565 -1.798 -43.255 -1.052 -50.518 -0.55"
+              fill="none"
+              stroke="currentColor"
+              stroke-opacity="1"
+              stroke-width="9"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+      </g>
+    </g>
+
+    <!-- Group 2 -->
+    <g transform="matrix(-1 0 0 -1 206.03 204.961)" opacity="1">
+      <g transform="matrix(3.03029990 0.00084622 -0.00084622 3.03029990 0 0)" opacity="1">
+        <path d="M42.76 0.653
+                 C29.048 -2.295 14.638 1.921 0.859 1.068
+                 C-9.449 0.43 -14.19 -0.689 -24.8 -1.11
+                 C-32.643 -1.421 -36.612 -0.675 -42.76 -0.173"
+              fill="none"
+              stroke="currentColor"
+              stroke-opacity="1"
+              stroke-width="9"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+      </g>
+    </g>
+
+    <!-- Group 3 -->
+    <g transform="translate(188.055 78.373)" opacity="1">
+      <g transform="matrix(2.99940920 -0.43158025 0.43158025 2.99940920 0 0)" opacity="1">
+        <path d="M52.569 0.335
+                 C44.373 3.794 35.824 0.491 18.405 -0.164
+                 C12.096 -0.401 7.89 1.252 1.056 0.836
+                 C-11.617 0.064 -17.444 -1.29 -30.488 -1.799
+                 C-40.131 -2.175 -45.011 -1.273 -52.569 -0.665"
+              fill="none"
+              stroke="currentColor"
+              stroke-opacity="1"
+              stroke-width="9"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+      </g>
+    </g>
+  </g>
+</svg>

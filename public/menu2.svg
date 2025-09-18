@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 400 400"
+     width="400" height="400"
+     preserveAspectRatio="xMidYMid meet"
+     role="img" aria-label="Decorative animated-style strokes (static SVG)">
+  <defs>
+    <clipPath id="lottie_clip"><rect width="400" height="400" x="0" y="0"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#lottie_clip)">
+    <g transform="matrix(1 0 0 1 200 200)" opacity="1" style="display:block;">
+      <g opacity="1" transform="matrix(3.0302999019622803 0 0 3.0302999019622803 0 0)"></g>
+    </g>
+
+    <g transform="matrix(0.7071067690849304 0.7071067690849304 -0.7071067690849304 0.7071067690849304 188.05499267578125 188.3730010986328)" opacity="1" style="display:block;">
+      <g opacity="1" transform="matrix(2.9994091987609863 -0.43158024549484253 0.43158024549484253 2.9994091987609863 0 0)">
+        <path d="M52.569 0.335
+                 C44.373 3.794 35.824 0.491 18.405 -0.164
+                 C12.096 -0.401 7.89 1.252 1.056 0.836
+                 C-11.617 0.064 -17.444 -1.29 -30.488 -1.799
+                 C-40.131 -2.175 -45.011 -1.273 -52.569 -0.665"
+              fill="none"
+              stroke="currentColor"
+              stroke-opacity="1"
+              stroke-width="9"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+      </g>
+    </g>
+
+    <g transform="matrix(-1 0 0 -1 206.03 204.96099853515625)" opacity="0.5" style="display:none;">
+      <g opacity="1" transform="matrix(3.0302999019622803 0.0008462193654850125 -0.0008462193654850125 3.0302999019622803 0 0)">
+        <path d="M42.76 0.653
+                 C29.048 -2.295 14.638 1.921 0.859 1.068
+                 C-9.449 0.43 -14.19 -0.689 -24.8 -1.11
+                 C-32.643 -1.421 -36.612 -0.675 -42.76 -0.173"
+              fill="none"
+              stroke="currentColor"
+              stroke-opacity="1"
+              stroke-width="9"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+      </g>
+    </g>
+
+    <g transform="matrix(-0.6560590267181396 0.7547096014022827 -0.7547096014022827 -0.6560590267181396 201.38800048828125 196.89700317382812)" opacity="1" style="display:block;">
+      <g opacity="1" transform="matrix(3.0155417919158936 -0.2987055778503418 0.2987055778503418 3.0155417919158936 0 0)">
+        <path d="M50.518 0.277
+                 C42.642 3.136 34.427 0.405 17.687 -0.136
+                 C11.624 -0.332 7.582 1.035 1.014 0.691
+                 C-11.165 0.053 -16.764 -1.066 -29.299 -1.487
+                 C-38.565 -1.798 -43.255 -1.052 -50.518 -0.55"
+              fill="none"
+              stroke="currentColor"
+              stroke-opacity="1"
+              stroke-width="9"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+      </g>
+    </g>
+  </g>
+</svg>
