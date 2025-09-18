@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Awais's Portfolio",
   description: "Awais's Journey",
+  icons: {
+    icon: "/LogoIcon.avif", 
+  },
 };
 
 export default function RootLayout({
