@@ -1,15 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
 
-interface AnimatedMenuIconProps {
-  isOpen: boolean;
-  className?: string;
-}
+
 
 export default function AnimatedMenuIcon({
   isOpen,
   className = "h-8 w-8",
-}: AnimatedMenuIconProps) {
+}) {
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
@@ -120,7 +117,7 @@ export default function AnimatedMenuIcon({
               style={{
                 strokeDasharray: "200",
                 strokeDashoffset: "200",
-                ["--dash-length" as any]: "200", // pass custom var
+                ["--dash-length"]: "200", // pass custom var
                 animationDelay: animate ? "0s" : "0s",
               }}
             />
@@ -144,7 +141,7 @@ export default function AnimatedMenuIcon({
               style={{
                 strokeDasharray: "200",
                 strokeDashoffset: "200",
-                ["--dash-length" as any]: "200",
+                ["--dash-length"]: "200",
                 animationDelay: animate ? "0.6s" : "0s", // wait 0.6s
               }}
             />
@@ -168,7 +165,7 @@ export default function AnimatedMenuIcon({
               style={{
                 strokeDasharray: "200",
                 strokeDashoffset: "200",
-                ["--dash-length" as any]: "200",
+                ["--dash-length"]: "200",
                 animationDelay: animate ? "1.2s" : "0s", // wait longer
               }}
             />
