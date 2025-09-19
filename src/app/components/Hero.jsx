@@ -34,13 +34,13 @@ const Hero = () => {
 
     gsap.fromTo(
       ".glow-img",
-      { y: 200, opacity: 1 }, // start lower + visible
+      { y: 0, opacity: 1 }, // start lower + visible
       {
         y: -200, // move upward
         opacity: 0, // fade out
         duration: 2,
         ease: "power2.out",
-        delay: 0.5,
+        delay: 0,
       }
     );
 
@@ -82,7 +82,7 @@ const Hero = () => {
       <img
         src="/c5.png"
         alt="glow"
-        className="glow-img absolute bottom-0 left-1/2 -translate-x-1/2 w-full pointer-events-none"
+        className="glow-img absolute top-0 left-1/2 -translate-x-1/2 w-full pointer-events-none"
       />
 
       {/* Content */}
