@@ -31,7 +31,7 @@ const Connect = () => {
             {/* View CV Button */}
             <div className="flex justify-center mt-24 sm:mt-28 md:mt-28 lg:mt-18">
               <a
-                href="/report.pdf"
+                href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative inline-flex items-center justify-center px-8 py-4 sm:px-10 sm:py-5 text-lg sm:text-xl font-semibold text-white bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 rounded-full shadow-2xl transition-all duration-300 ease-out hover:scale-105 hover:shadow-blue-500/25 focus:outline-none focus:ring-4 focus:ring-blue-500/50 active:scale-95"
