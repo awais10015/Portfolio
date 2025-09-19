@@ -1,13 +1,79 @@
-import React from "react";
+"use client"
+import React, { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 // import Journey from "@/app/components/Journey";
 const Work = () => {
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Heading animation
+    gsap.from(".work-heading", {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".work-heading",
+        start: "top 80%",
+      },
+    });
+
+    // Animate each project card
+    gsap.from(".work-card", {
+      y: 100,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: "#work",
+        start: "top 60%",
+      },
+    });
+
+    // SVG path animation (line draw effect)
+    const paths = document.querySelectorAll(".path-animate");
+    paths.forEach((path) => {
+      const length = path.getTotalLength();
+      gsap.fromTo(
+        path,
+        { strokeDasharray: length, strokeDashoffset: length },
+        {
+          strokeDashoffset: 0,
+          duration: 2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: path,
+            start: "top 80%",
+          },
+        }
+      );
+    });
+
+    // Final text animation
+    gsap.from(".work-quote", {
+      opacity: 0,
+      rotate: -5,
+      y: 50,
+      duration: 1.5,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".work-quote",
+        start: "top 85%",
+      },
+    });
+  }, []);
+
   return (
     <section id="work">
       <div
         // id="work"
-        className=" w-full mt-40 px-5 md:px-14 flex flex-col gap-5"
+        className=" w-full mt-16 px-5 md:px-14 flex flex-col gap-5"
       >
-        <div className="w-full flex items-center justify-center mb-15">
+        <div className=" work-card w-full flex items-center justify-center mb-15">
           <div className="flex flex-col items-end justify-center">
             <div className="text-end flex justify-end items-end">
               <p className="caveat text-3xl text-gray-500">
@@ -20,7 +86,7 @@ const Work = () => {
           </div>
         </div>
         {/* 1st 2 projects */}
-        <div className="w-full flex items-stretch gap-5 flex-col lg:flex-row">
+        <div className="work-card w-full flex items-stretch gap-5 flex-col lg:flex-row">
           {/* Left Card */}
           <a
             href="https://line-one-eosin.vercel.app/"
@@ -53,7 +119,7 @@ const Work = () => {
                   Social Media Platform
                 </p>
               </div>
-              <div className="border-5 border-white rounded-2xl bg-gray-200 overflow-hidden p-5 transform translate-y-20 rotate-15 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:rotate-0">
+              <div className="border-5 border-white rounded-2xl bg-gray-200 overflow-hidden p-0 lg:p-5 transform translate-y-20 rotate-15 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:rotate-0">
                 <img src="/Lineone.png" alt="lineone" className="rounded-xl " />
               </div>
             </div>
@@ -99,7 +165,7 @@ const Work = () => {
         </div>
 
         {/* 2nd 2 projects */}
-        <div className="w-full flex items-stretch gap-5 flex-col lg:flex-row">
+        <div className="work-card w-full flex items-stretch gap-5 flex-col lg:flex-row">
           <a
             href="https://sundown-opal.vercel.app/"
             target="_blank"
@@ -169,7 +235,7 @@ const Work = () => {
                   Hospital Management System
                 </p>
               </div>
-              <div className="border-5 p-5  border-white rounded-2xl bg-gray-200 overflow-hidden transform translate-y-15 -rotate-15 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:rotate-0">
+              <div className="border-5 p-0 lg:p-5  border-white rounded-2xl bg-gray-200 overflow-hidden transform translate-y-15 -rotate-15 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:rotate-0">
                 <img src="/healix.png" alt="lineone" className="rounded-xl" />
               </div>
             </div>
@@ -177,7 +243,7 @@ const Work = () => {
         </div>
 
         {/* 3rd 2 projects */}
-        <div className="w-full flex items-stretch gap-5 flex-col lg:flex-row">
+        <div className="work-card w-full flex items-stretch gap-5 flex-col lg:flex-row">
           <a
             href="https://mystore-seven-chi.vercel.app/"
             target="_blank"
@@ -210,7 +276,7 @@ const Work = () => {
                   A place to buy Furniture
                 </p>
               </div>
-              <div className="border-5 border-white rounded-2xl bg-gray-200 overflow-hidden p-5 transform translate-y-20 rotate-15 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:rotate-0">
+              <div className="border-5 border-white rounded-2xl bg-gray-200 overflow-hidden p-0 lg:p-5 transform translate-y-20 rotate-15 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:rotate-0">
                 <img src="/Store.png" alt="lineone" className="rounded-xl " />
               </div>
             </div>
@@ -255,7 +321,7 @@ const Work = () => {
         </div>
 
         {/* full width dashboard */}
-        <div className="w-full flex items-stretch gap-5 flex-col lg:flex-row">
+        <div className="work-card w-full flex items-stretch gap-5 flex-col lg:flex-row">
           <a
             href="https://dashboard-six-pied-69.vercel.app/"
             target="_blank"
@@ -300,7 +366,7 @@ const Work = () => {
           </a>
         </div>
 
-        <div className="bg-gray-100 flex w- h-full flex-col items-center justify-center px-5 py-24 gap-14 rounded-4xl">
+        <div className="work-card bg-gray-100 flex w- h-full flex-col items-center justify-center px-5 py-24 gap-14 rounded-4xl">
           <img
             src="/ProjectFuture.avif"
             alt="Upcomming Projects"
