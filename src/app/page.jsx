@@ -11,22 +11,16 @@ const Page = () => {
   return (
     <>
       <Navbar />
-      <section id="hero">
-        <Hero />
-      </section>
 
-      <section id="work">
-        <Work/>
-      </section>
-      <section id="story">
-        <Story/>
-      </section>
-      <section id="process">
-        <Process/>
-      </section>
-      <section id="connect">
-       <Connect/>
-      </section>
+      <Hero />
+
+      <Work />
+
+      <Story />
+
+      <Process />
+
+      <Connect />
     </>
   );
 };

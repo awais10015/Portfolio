@@ -2,7 +2,7 @@ import React from "react";
 
 const Process = () => {
   return (
-    <>
+    <section id="process">
       <div 
       // id="process" 
       className="w-full flex flex-col gap-12 mt-30">
@@ -17,7 +17,7 @@ const Process = () => {
           />
         </div>
       </div>
-    </>
+    </section>
   );
 };
 

@@ -1,8 +1,8 @@
 import React from "react";
-import Journey from "@/app/components/Journey";
+// import Journey from "@/app/components/Journey";
 const Work = () => {
   return (
-    <>
+    <section id="work">
       <div
         // id="work"
         className=" w-full mt-40 px-5 md:px-14 flex flex-col gap-5"
@@ -322,8 +322,8 @@ const Work = () => {
         </p>
       </div>
 
-      <Journey />
-    </>
+      {/* <Journey /> */}
+    </section>
   );
 };
 

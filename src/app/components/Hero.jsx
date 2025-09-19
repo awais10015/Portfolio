@@ -15,7 +15,7 @@ const letters2 = [
 
 const Hero = () => {
   return (
-    <>
+    <section id="hero">
       <img
         src="/bg2.avif"
         alt="bg"
@@ -86,7 +86,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 };
 
