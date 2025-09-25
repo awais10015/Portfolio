@@ -52,21 +52,29 @@ const Footer = () => {
         {/* Right: Social Icons */}
         <div className="flex items-center justify-center gap-4">
           {/* Github */}
-          <div className="group relative cursor-pointer rotate-3 transition-all duration-300 ease-out hover:rotate-6 hover:-translate-y-5">
-            {/* Inner wrapper only for shimmer clipping */}
+          <a
+            href="https://github.com/awais10015"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative cursor-pointer rotate-3 transition-all duration-300 ease-out hover:rotate-6 hover:-translate-y-5"
+          >
             <div className="relative rounded-2xl overflow-hidden">
               <img
                 src="/github.webp"
                 alt="Github"
                 className="h-15 w-15 rounded-2xl"
               />
-              {/* Shimmer */}
               <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none"></span>
             </div>
-          </div>
+          </a>
 
           {/* LinkedIn */}
-          <div className="group relative cursor-pointer -rotate-2 -translate-y-2 transition-all duration-300 ease-out hover:rotate-6 hover:-translate-y-5">
+          <a
+            href="https://linkedin.com/in/awais10015"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative cursor-pointer -rotate-2 -translate-y-2 transition-all duration-300 ease-out hover:rotate-6 hover:-translate-y-5"
+          >
             <div className="relative rounded-2xl overflow-hidden">
               <img
                 src="/linkedIn.avif"
@@ -75,31 +83,41 @@ const Footer = () => {
               />
               <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none"></span>
             </div>
-          </div>
+          </a>
 
           {/* Instagram */}
-          <div className="group relative cursor-pointer -rotate-4 translate-y-1 transition-all duration-300 ease-out hover:rotate-6 hover:-translate-y-5">
+          <a
+            href="https://instagram.com/awais10015"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative cursor-pointer -rotate-4 translate-y-1 transition-all duration-300 ease-out hover:rotate-6 hover:-translate-y-5"
+          >
             <div className="relative rounded-2xl overflow-hidden">
               <img
-                src="Instagram.avif"
+                src="/Instagram.avif"
                 alt="Instagram"
                 className="h-15 w-15 rounded-2xl"
               />
               <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none"></span>
             </div>
-          </div>
+          </a>
 
           {/* Twitter */}
-          <div className="group relative cursor-pointer rotate-2 transition-all duration-300 ease-out hover:rotate-6 hover:-translate-y-5">
+          <a
+            href="https://twitter.com/mawais10015"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative cursor-pointer rotate-2 transition-all duration-300 ease-out hover:rotate-6 hover:-translate-y-5"
+          >
             <div className="relative rounded-2xl overflow-hidden">
               <img
                 src="/Twitter.webp"
-                alt="X(Twitter)"
+                alt="X (Twitter)"
                 className="h-15 w-15 rounded-2xl"
               />
               <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none"></span>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>
