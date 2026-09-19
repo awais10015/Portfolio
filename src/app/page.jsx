@@ -2,7 +2,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import AnimatedMenuIcon from "@/app/components/animated-menu-icon";
+import ContactFeature from "@/app/components/ContactFeature";
+import ContactForm from "@/app/components/ContactForm";
 import Footer from "@/app/components/Footer";
+import WhatsAppContactCard from "@/app/components/WhatsAppContactCard";
+import { CONTACT_FORM_HASH, CONTACT_FORM_ID } from "@/app/constants/contact";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -53,7 +57,9 @@ const Page = () => {
     { name: "Connect", href: "#connect" },
   ];
 
-  const [clicked, setClicked] = useState(false);
+  const sunIconPath =
+    "M 7.081 18.931 C 15.273 19.853 19.843 13.955 17.88 10.023 C 12.609 -0.53 -1.763 19.87 11.928 17.902 M 2.754 12.66 L 2.737 12.66 C 2.555 12.66 1.857 12.66 1.034 12.727 M 4.545 18.931 C 4.162 19.13 2.673 20.281 2.346 20.5 M 11.503 22 L 11.212 23 M 14.294 1.224 C 14.053 2.28 13.894 3.229 13.894 3.486 M 18.545 6.727 C 18.744 6.529 21.062 4.617 22.648 3.486 M 21.379 11.313 C 21.379 11.313 21.952 11.202 22.648 11.105 M 18.545 17.902 C 19.272 18.273 20.483 19.363 20.996 20.009 M 2.09 2.091 C 4.908 3.486 6.727 5.545 7.454 6.909";
+
   const [open, setOpen] = useState(false);
   const [randomPath, setRandomPath] = useState(paths[0]);
   const [active, setActive] = useState("");
@@ -170,17 +176,6 @@ const Page = () => {
   }, []);
 
   useEffect(() => {
-    let timer;
-    if (clicked) {
-      timer = setTimeout(() => {
-        setClicked(false);
-      }, 150);
-    }
-    return () => clearTimeout(timer);
-  }, [clicked]);
-
-  
-  useEffect(() => {
     if (active) {
       const pick = paths[Math.floor(Math.random() * paths.length)];
       setRandomPath(pick);
@@ -220,37 +215,31 @@ const Page = () => {
           <ul className="hidden md:flex gap-6 items-center justify-center">
             <li className="flex items-center justify-center">
               <div className="framer-vgwrft-containe flex justify-center items-center">
-                <a
-                  href="#hero"
-                  className="group relative inline-flex items-center justify-center rounded-full"
-                >
-                  <svg
-                    width="25"
-                    height="25"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                    className="group cursor-pointer"
-                  >
-                    {/* Gray Path (default) */}
-                    <path
-                      d="M 7.081 18.931 C 15.273 19.853 19.843 13.955 17.88 10.023 C 12.609 -0.53 -1.763 19.87 11.928 17.902 M 2.754 12.66 L 2.737 12.66 C 2.555 12.66 1.857 12.66 1.034 12.727 M 4.545 18.931 C 4.162 19.13 2.673 20.281 2.346 20.5 M 11.503 22 L 11.212 23 M 14.294 1.224 C 14.053 2.28 13.894 3.229 13.894 3.486 M 18.545 6.727 C 18.744 6.529 21.062 4.617 22.648 3.486 M 21.379 11.313 C 21.379 11.313 21.952 11.202 22.648 11.105 M 18.545 17.902 C 19.272 18.273 20.483 19.363 20.996 20.009 M 2.09 2.091 C 4.908 3.486 6.727 5.545 7.454 6.909"
-                      stroke="gray"
-                      strokeWidth="1.64"
-                      className="group-hover:opacity-0 transition-opacity duration-0"
-                    />
-
-                    {/* Yellow Animated Path */}
-                    <path
-                      d="M 7.081 18.931 C 15.273 19.853 19.843 13.955 17.88 10.023 C 12.609 -0.53 -1.763 19.87 11.928 17.902 M 2.754 12.66 L 2.737 12.66 C 2.555 12.66 1.857 12.66 1.034 12.727 M 4.545 18.931 C 4.162 19.13 2.673 20.281 2.346 20.5 M 11.503 22 L 11.212 23 M 14.294 1.224 C 14.053 2.28 13.894 3.229 13.894 3.486 M 18.545 6.727 C 18.744 6.529 21.062 4.617 22.648 3.486 M 21.379 11.313 C 21.379 11.313 21.952 11.202 22.648 11.105 M 18.545 17.902 C 19.272 18.273 20.483 19.363 20.996 20.009 M 2.09 2.091 C 4.908 3.486 6.727 5.545 7.454 6.909"
-                      stroke="#facc15"
-                      strokeWidth="1.64"
-                      className="yellow-path opacity-0 group-hover:opacity-100"
-                    />
-                  </svg>
-                </a>
+              <a
+  href="#hero"
+  className={`group relative inline-flex items-center justify-center rounded-full transition-colors duration-300 ${
+    active === "#hero"
+      ? "text-yellow-400"
+      : "text-gray-500 hover:text-yellow-400"
+  }`}
+>
+  <svg
+    width="25"
+    height="25"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    className="cursor-pointer"
+  >
+    <path
+      d="M 7.081 18.931 C 15.273 19.853 19.843 13.955 17.88 10.023 C 12.609 -0.53 -1.763 19.87 11.928 17.902 M 2.754 12.66 L 2.737 12.66 C 2.555 12.66 1.857 12.66 1.034 12.727 M 4.545 18.931 C 4.162 19.13 2.673 20.281 2.346 20.5 M 11.503 22 L 11.212 23 M 14.294 1.224 C 14.053 2.28 13.894 3.229 13.894 3.486 M 18.545 6.727 C 18.744 6.529 21.062 4.617 22.648 3.486 M 21.379 11.313 C 21.379 11.313 21.952 11.202 22.648 11.105 M 18.545 17.902 C 19.272 18.273 20.483 19.363 20.996 20.009 M 2.09 2.091 C 4.908 3.486 6.727 5.545 7.454 6.909"
+      strokeWidth="1.64"
+    />
+  </svg>
+</a>
               </div>
             </li>
             {links.map((link) => (
@@ -284,7 +273,7 @@ const Page = () => {
             ))}
 
             <li>
-              <a href="mailto:awais10015@gmail.com">
+              <a href={CONTACT_FORM_HASH}>
                 <button className="text-[#ffd500] bg-[#ffd500]/10 whitespace-nowrap hover:bg-[#ffd500]/90 hover:text-white py-1 rounded-2xl text-lg font-bold px-2 transition cursor-pointer">
                   Start Project
                 </button>
@@ -298,9 +287,12 @@ const Page = () => {
               <div className="framer-vgwrft-containe flex justify-center items-center">
                 <a
                   href="#hero"
-                  onClick={() => setClicked(true)}
                   className="group relative inline-flex items-center justify-center rounded-full"
                 >
+                  <span
+                    className="sun-halo pointer-events-none absolute inset-[-6px] rounded-full bg-[#facc15]/50 blur-md"
+                    aria-hidden
+                  />
                   <svg
                     width="25"
                     height="25"
@@ -309,24 +301,12 @@ const Page = () => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     aria-hidden="true"
-                    className="group cursor-pointer"
+                    className="sun-pulse relative z-10 cursor-pointer"
                   >
-                    {/* Gray Path */}
                     <path
-                      d="M 7.081 18.931 C 15.273 19.853 19.843 13.955 17.88 10.023 C 12.609 -0.53 -1.763 19.87 11.928 17.902 M 2.754 12.66 L 2.737 12.66 C 2.555 12.66 1.857 12.66 1.034 12.727 M 4.545 18.931 C 4.162 19.13 2.673 20.281 2.346 20.5 M 11.503 22 L 11.212 23 M 14.294 1.224 C 14.053 2.28 13.894 3.229 13.894 3.486 M 18.545 6.727 C 18.744 6.529 21.062 4.617 22.648 3.486 M 21.379 11.313 C 21.379 11.313 21.952 11.202 22.648 11.105 M 18.545 17.902 C 19.272 18.273 20.483 19.363 20.996 20.009 M 2.09 2.091 C 4.908 3.486 6.727 5.545 7.454 6.909"
-                      stroke="gray"
-                      strokeWidth="1.64"
-                      className={`transition-opacity duration-200 ${
-                        clicked ? "opacity-0" : "opacity-100"
-                      }`}
-                    />
-
-                    {/* Yellow Animated Path */}
-                    <path
-                      d="M 7.081 18.931 C 15.273 19.853 19.843 13.955 17.88 10.023 C 12.609 -0.53 -1.763 19.87 11.928 17.902 M 2.754 12.66 L 2.737 12.66 C 2.555 12.66 1.857 12.66 1.034 12.727 M 4.545 18.931 C 4.162 19.13 2.673 20.281 2.346 20.5 M 11.503 22 L 11.212 23 M 14.294 1.224 C 14.053 2.28 13.894 3.229 13.894 3.486 M 18.545 6.727 C 18.744 6.529 21.062 4.617 22.648 3.486 M 21.379 11.313 C 21.379 11.313 21.952 11.202 22.648 11.105 M 18.545 17.902 C 19.272 18.273 20.483 19.363 20.996 20.009 M 2.09 2.091 C 4.908 3.486 6.727 5.545 7.454 6.909"
+                      d={sunIconPath}
                       stroke="#facc15"
                       strokeWidth="1.64"
-                      className={`yellow-path ${clicked ? "draw-mob" : ""}`}
                     />
                   </svg>
                 </a>
@@ -384,7 +364,7 @@ const Page = () => {
               </li>
             ))}
             <li>
-              <a href="mailto:awais10015@gmail.com">
+              <a href={CONTACT_FORM_HASH}>
                 <button className="text-[#ffd500] bg-[#ffd500]/10 whitespace-nowrap hover:bg-[#ffd500]/90 py-1 rounded-2xl font-bold px-2 transition cursor-pointer">
                   Start Project
                 </button>
@@ -493,13 +473,13 @@ const Page = () => {
           <div className="work-card w-full flex items-stretch gap-5 flex-col lg:flex-row">
             {/* Left Card */}
             <a
-              href="https://line-one-eosin.vercel.app/"
+              href="https://lineone-social.vercel.app/intro"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex-[1.3]"
             >
               <div className="w-full cursor-pointer bg-gray-100 p-5 rounded-4xl  flex gap-2 flex-col items-start group overflow-hidden">
-                <div className="w-full flex flex-col gap-2">
+                <div className="relative z-10 w-full flex flex-col gap-2">
                   <div className="w-full flex justify-between">
                     <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">
                       LINEONE
@@ -523,7 +503,7 @@ const Page = () => {
                     Social Media Platform
                   </p>
                 </div>
-                <div className="border-5 border-white rounded-2xl bg-gray-200 overflow-hidden p-0 lg:p-5 transform translate-y-20 rotate-15 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:rotate-0">
+                <div className="mt-10 w-full border-5 border-white rounded-2xl bg-gray-200 overflow-hidden p-0 lg:p-5 transform translate-y-28 md:translate-y-32 rotate-15 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:rotate-0">
                   <img
                     src="/Lineone.png"
                     alt="lineone"
@@ -575,7 +555,7 @@ const Page = () => {
           {/* 2nd 2 projects */}
           <div className="work-card w-full flex items-stretch gap-5 flex-col lg:flex-row">
             <a
-              href="https://sundown-opal.vercel.app/"
+              href="https://sundown-studio-web.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex-[1] cursor-pointer bg-gray-100 rounded-4xl  flex gap-2 flex-col items-start justify-evenly group overflow-hidden"
@@ -616,7 +596,7 @@ const Page = () => {
               </div>
             </a>
             <a
-              href="https://healix-inky.vercel.app/"
+              href="https://healix-hospital.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex-[1.3]"
@@ -657,14 +637,14 @@ const Page = () => {
           {/* 3rd 2 projects */}
           <div className="work-card w-full flex items-stretch gap-5 flex-col lg:flex-row">
             <a
-              href="https://mystore-seven-chi.vercel.app/"
+              href="https://mystore-online.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex-[1.3]"
             >
               {/* Left Card */}
               <div className="w-full cursor-pointer bg-gray-100 p-5 rounded-4xl flex gap-2 flex-col items-start group overflow-hidden">
-                <div className="w-full flex flex-col gap-2">
+                <div className="relative z-10 w-full flex flex-col gap-2">
                   <div className="w-full flex justify-between">
                     <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl  font-bold">
                       FURNITURE STORE
@@ -688,7 +668,7 @@ const Page = () => {
                     A place to buy Furniture
                   </p>
                 </div>
-                <div className="border-5 border-white rounded-2xl bg-gray-200 overflow-hidden p-0 lg:p-5 transform translate-y-20 rotate-15 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:rotate-0">
+                <div className="mt-10 w-full border-5 border-white rounded-2xl bg-gray-200 overflow-hidden p-0 lg:p-5 transform translate-y-28 md:translate-y-32 rotate-15 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:rotate-0">
                   <img src="/Store.png" alt="lineone" className="rounded-xl " />
                 </div>
               </div>
@@ -735,14 +715,14 @@ const Page = () => {
           {/* full width dashboard */}
           <div className="work-card w-full flex items-stretch gap-5 flex-col lg:flex-row">
             <a
-              href="https://dashboard-six-pied-69.vercel.app/"
+              href="https://data-dashboard-realtime.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full"
             >
               {" "}
               {/* full width Card */}
-              <div className="w-full cursor-pointer bg-gray-100 p-5 rounded-4xl flex gap-2 flex-col items-start group overflow-hidden">
+              <div className="w-full cursor-pointer bg-gray-100 p-5 rounded-4xl flex gap-2 flex-col items-stretch group overflow-hidden">
                 <div className="w-full flex flex-col gap-2">
                   <div className="w-full flex justify-between">
                     <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl  font-bold">
@@ -767,12 +747,14 @@ const Page = () => {
                     Web Design, Management, Development
                   </p>
                 </div>
-                <div className="border-5 border-white rounded-2xl bg-gray-200 overflow-hidden p-0 lg:p-5 transform translate-y-10 md:translate-y-30 rotate-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:rotate-0">
-                  <img
-                    src="/dashboard.png"
-                    alt="lineone"
-                    className="rounded-xl "
-                  />
+                <div className="w-full flex justify-center">
+                  <div className="w-full border-5 border-white rounded-2xl bg-gray-200 overflow-hidden p-0 lg:p-5 transform translate-y-10 md:translate-y-30 rotate-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:rotate-0">
+                    <img
+                      src="/dashboard.png"
+                      alt="Dashboard project preview"
+                      className="rounded-xl w-full h-auto block mx-auto"
+                    />
+                  </div>
                 </div>
               </div>
             </a>
@@ -865,9 +847,9 @@ const Page = () => {
           </div>
           <div className="w-full flex items-center justify-center  ">
             <img
-              src="Joke.webp"
+              src="/Joke.webp"
               alt="process"
-              className="w-[250px] rotate-12 rounded-2xl object-center object-cover"
+              className="w-[320px] sm:w-[380px] md:w-[440px] lg:w-[500px] rotate-12 rounded-2xl object-center object-cover"
             />
           </div>
         </div>
@@ -875,37 +857,30 @@ const Page = () => {
       {/* <Connect /> */}
       <section id="connect">
         <div className="relative min-h-screen flex flex-col justify-between overflow-hidden">
-          {/* Background Video */}
-          <video
-            className="absolute top-1/2 left-1/2 w-60 h-25 md:w-90 md:h-40 object-cover scale-105 -translate-x-1/2 -translate-y-1/2"
-            src="/cvEffects.webm"
-            autoPlay
-            loop
-            muted
-            playsInline
-          />
-
-          
-          <div className="absolute inset-0  z-5"></div>
-
           {/* Main content */}
           <div className="relative z-10 flex flex-1 items-center justify-center px-4 sm:px-6 lg:px-8">
-            <div className="text-center space-y-8 max-w-2xl mx-auto">
-              {/* Hero text */}
-              <div className="space-y-4">
-                <p className="caveat text-lg sm:text-xl text-gray-500 max-w-lg mx-auto">
-                  Ready to collaborate? View my CV and let's discuss your next
-                  project.
-                </p>
-              </div>
+            <div className="text-center max-w-6xl mx-auto w-full flex flex-col items-center">
+              <p className="relative z-20 caveat text-2xl sm:text-3xl md:text-4xl text-gray-500 max-w-2xl mx-auto leading-snug px-2 sm:px-4 mb-10 sm:mb-14 md:mb-16">
+                Ready to collaborate? View my CV and let&apos;s discuss your
+                next project.
+              </p>
 
-              {/* View CV Button */}
-              <div className="flex justify-center mt-24 sm:mt-28 md:mt-28 lg:mt-18">
+              {/* Button + decorative video (kept separate from text) */}
+              <div className="relative flex w-full max-w-[44rem] items-center justify-center min-h-[12rem] sm:min-h-[16rem] md:min-h-[22rem] px-4">
+                <video
+                  className="pointer-events-none absolute top-1/2 left-1/2 z-0 w-[min(100%,42rem)] h-[min(70vw,24rem)] sm:h-[20rem] md:h-[24rem] -translate-x-1/2 -translate-y-1/2 object-contain"
+                  src="/cvEffects.webm"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  aria-hidden
+                />
                 <a
                   href="/Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative inline-flex items-center justify-center px-8 py-4 sm:px-10 sm:py-5 text-lg sm:text-xl font-semibold text-white bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 rounded-full shadow-2xl transition-all duration-300 ease-out hover:scale-105 hover:shadow-blue-500/25 focus:outline-none focus:ring-4 focus:ring-blue-500/50 active:scale-95"
+                  className="group relative z-10 inline-flex items-center justify-center px-10 py-5 sm:px-14 sm:py-6 text-xl sm:text-2xl md:text-3xl font-semibold text-white bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 rounded-full shadow-2xl transition-all duration-300 ease-out hover:scale-105 hover:shadow-blue-500/25 focus:outline-none focus:ring-4 focus:ring-blue-500/50 active:scale-95"
                 >
                   {/* Animated background gradient */}
                   <span className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></span>
@@ -917,7 +892,7 @@ const Page = () => {
                   <span className="relative z-10 flex items-center space-x-2">
                     <span>View CV</span>
                     <svg
-                      className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                      className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 transition-transform duration-300 group-hover:translate-x-1"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -935,11 +910,44 @@ const Page = () => {
                   <span className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-30 group-hover:opacity-60 transition-opacity duration-300"></span>
                 </a>
               </div>
+
+              <div className="relative z-20 w-full max-w-5xl mt-8 sm:mt-12 md:mt-14 mb-12 md:mb-20 px-4 scroll-mt-28">
+                <div className="flex flex-col lg:flex-row lg:items-stretch gap-10 lg:gap-8 xl:gap-12">
+                  <div className="w-full min-w-0 lg:flex-1 lg:max-w-md">
+                    <ContactFeature
+                      variant="whatsapp"
+                      title="Quick chat"
+                      subtitle="Fastest way to say hello"
+                    >
+                      <WhatsAppContactCard />
+                    </ContactFeature>
+                  </div>
+
+                  <div
+                    className="hidden lg:flex flex-col items-center justify-center px-2"
+                    aria-hidden
+                  >
+                    <span className="caveat text-4xl text-gray-400 rotate-6">or</span>
+                  </div>
+
+                  <div className="w-full min-w-0 lg:flex-[1.35] xl:flex-[1.5]">
+                    <ContactFeature
+                      variant="email"
+                      title="Drop me a note"
+                      subtitle="Tell me about your project"
+                      id={CONTACT_FORM_ID}
+                      className="scroll-mt-28"
+                    >
+                      <ContactForm />
+                    </ContactFeature>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Footer */}
-          <div className="relative z-10">
+          <div className="relative z-10 mt-6 md:mt-10 pt-2">
             <Footer />
           </div>
         </div>

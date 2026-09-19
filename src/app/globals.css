@@ -99,3 +99,51 @@ html {
 .group:hover .path-animate {
   animation: drawLine 1s ease-out forwards;
 }
+
+.footer-plane-path {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+}
+
+.footer-underline-path {
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+}
+
+.footer-email-block.footer-animate-active .footer-plane-path {
+  animation: drawLine 1s ease-out forwards;
+}
+
+.footer-email-block.footer-animate-active .footer-underline-path {
+  animation: footer-draw-underline 1.2s ease-in-out forwards;
+}
+
+@keyframes footer-draw-underline {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.contact-underline-path {
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+}
+
+.contact-doodle-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.contact-feature-animate-active .contact-underline-path {
+  animation: footer-draw-underline 1.2s ease-in-out forwards;
+}
+
+@keyframes contactDoodleDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.contact-feature-animate-active .contact-doodle-path {
+  animation: contactDoodleDraw 1s ease-out forwards;
+}
