@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Awais's Portfolio",
-  description: "Awais's Journey",
+  description: "Awais — Web Developer. Portfolio and selected work.",
   icons: {
     icon: "/LogoIcon.avif", 
   },
@@ -35,7 +35,7 @@ export default function RootLayout({
       </head>
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable}  antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
         {children}
       </body>

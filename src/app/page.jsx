@@ -67,112 +67,86 @@ const Page = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-   
-    gsap.to(".hero-bg", {
-      y: -200,
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
+    const ctx = gsap.context(() => {
+      gsap.to(".hero-bg", {
+        y: -200,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#hero",
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
 
-    gsap.fromTo(
-      ".glow-img",
-      { y: 0, opacity: 1 }, 
-      {
-        y: -200, 
-        opacity: 0, 
-        duration: 2,
-        ease: "power2.out",
-        delay: 0,
-      }
-    );
-
-  
-    gsap.fromTo(
-      ".hero-heading",
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1.2, ease: "power3.out", delay: 0.3 }
-    );
-
-  
-    gsap.fromTo(
-      ".letter",
-      { opacity: 0, scale: 0.8, y: 40 },
-      {
-        opacity: 1,
-        scale: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "back.out(1.7)",
-        stagger: 0.1,
-        delay: 0.8,
-      }
-    );
-  }, []);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-
-    gsap.from(".work-heading", {
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: ".work-heading",
-        start: "top 80%",
-      },
-    });
-
-   
-    gsap.from(".work-card", {
-      y: 100,
-      opacity: 0,
-      duration: 1,
-      ease: "power3.out",
-      stagger: 0.2,
-      scrollTrigger: {
-        trigger: "#work",
-        start: "top 60%",
-      },
-    });
-
-   
-    const paths = document.querySelectorAll(".path-animate");
-    paths.forEach((path) => {
-      const length = path.getTotalLength();
       gsap.fromTo(
-        path,
-        { strokeDasharray: length, strokeDashoffset: length },
+        ".glow-img",
+        { y: 0, opacity: 1 },
         {
-          strokeDashoffset: 0,
+          y: -200,
+          opacity: 0,
           duration: 2,
           ease: "power2.out",
+        }
+      );
+
+      gsap.fromTo(
+        ".hero-heading",
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 1.2, ease: "power3.out", delay: 0.3 }
+      );
+
+      gsap.fromTo(
+        ".letter",
+        { opacity: 0, scale: 0.8, y: 40 },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "back.out(1.7)",
+          stagger: 0.1,
+          delay: 0.8,
+        }
+      );
+
+      gsap.fromTo(
+        ".work-card",
+        { y: 100 },
+        {
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          stagger: 0.2,
+          immediateRender: false,
           scrollTrigger: {
-            trigger: path,
-            start: "top 80%",
+            trigger: "#work",
+            start: "top 85%",
+            once: true,
           },
         }
       );
+
+      document.querySelectorAll(".path-animate").forEach((path) => {
+        const length = path.getTotalLength();
+        gsap.fromTo(
+          path,
+          { strokeDasharray: length, strokeDashoffset: length },
+          {
+            strokeDashoffset: 0,
+            duration: 2,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: path,
+              start: "top 80%",
+              once: true,
+            },
+          }
+        );
+      });
     });
 
-   
-    gsap.from(".work-quote", {
-      opacity: 0,
-      rotate: -5,
-      y: 50,
-      duration: 1.5,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: ".work-quote",
-        start: "top 85%",
-      },
-    });
+    return () => ctx.revert();
   }, []);
 
   useEffect(() => {
@@ -392,19 +366,20 @@ const Page = () => {
         />
 
         {/* Content */}
-        <div className="relative mb-20 lg:mb-0 mt-0 lg:mt-20 z-10 px-4 sm:px-6 md:px-10 pb-16 flex flex-col items-start">
+        <div className="relative mb-20 lg:mb-0 mt-0 lg:mt-20 z-10 w-full max-w-full min-w-0 px-4 sm:px-6 md:px-10 pb-16 flex flex-col items-start overflow-x-hidden">
           {/* Heading */}
-          <h1 className="hero-heading text-2xl md:text-3xl font-medium text-black/60 drop-shadow-2xl mb-6">
-            "Howdy! Meet your trusted web developer, <br /> building modern,
-            scalable, and user-friendly websites."
-          </h1>
+          <h1 className="sr-only">Awais — Web Developer</h1>
+          <p className="hero-heading mb-6 max-w-2xl text-2xl font-medium leading-snug text-black/50 drop-shadow-2xl md:text-3xl">
+            I design and build production-ready web applications—fast interfaces,
+            solid architecture, and maintainable code.
+          </p>
 
           {/* First row */}
-          <div className="flex font-extrabold leading-none mb-2">
+          <div className="flex w-full max-w-full min-w-0 font-extrabold leading-none mb-2">
             {letters.map((letter, index) => (
               <span
                 key={index}
-                className={`letter relative inline-flex items-center justify-center cursor-pointer group text-[clamp(5rem,16vw,22rem)] text-black ${
+                className={`letter relative inline-flex shrink min-w-0 items-center justify-center cursor-pointer group text-[clamp(2.75rem,15vw,22rem)] text-black ${
                   letter.char === "." ? "mx-2 md:mx-4 lg:mx-6" : ""
                 }`}
               >
@@ -428,11 +403,11 @@ const Page = () => {
           </div>
 
           {/* Second row */}
-          <div className="flex font-extrabold leading-none">
+          <div className="flex w-full max-w-full min-w-0 font-extrabold leading-none">
             {letters2.map((letter, index) => (
               <span
                 key={index}
-                className={`letter relative inline-flex items-center justify-center cursor-pointer group text-[clamp(5rem,16vw,22rem)] text-black ${
+                className={`letter relative inline-flex shrink min-w-0 items-center justify-center cursor-pointer group text-[clamp(2.75rem,15vw,22rem)] text-black ${
                   letter.char === "." ? "mx-2 md:mx-4 lg:mx-6" : ""
                 }`}
               >
@@ -786,7 +761,7 @@ const Page = () => {
       </section>
 
       {/* <Story /> */}
-      <section id="story">
+      <section id="story" className="overflow-x-hidden">
         <div className="w-full mt-32 flex flex-col justify-center items-center">
           <p
             style={{ fontWeight: 700 }}
@@ -813,43 +788,42 @@ const Page = () => {
           </div>
         </div>
 
-        <div className="flex w-full  justify-center mt-10">
-          <div className="block lg:hidden">
-            <img src="/storyVer.avif" alt="ver" className="max-h-screen" />
-          </div>
-          <div className="flex flex-col lg:hidden justify-between pl-26  mt-10">
-            <img src="/aspire.png" alt="aspire" className="w-20 h-20" />
-            <img src="sls.png" alt="sls" className="w-20 h-20" />
-            <img src="pu.png" alt="pu" className="w-20 h-20" />
-
-            <img src="rev9.png" alt="rev9" className="w-20 h-20" />
-
-            <img src="/younow.png" alt="you" className="w-25 h-20" />
-            <div></div>
+        <div className="mt-10 flex w-full max-w-full items-start justify-center gap-3 px-3 sm:gap-4 sm:px-4 lg:hidden">
+          <img
+            src="/storyVer.avif"
+            alt="Career timeline from 2020 to now"
+            className="h-auto max-h-[75vh] w-auto max-w-[min(52vw,11rem)] shrink object-contain sm:max-w-[13rem]"
+          />
+          <div className="flex max-h-[75vh] min-h-[75vh] flex-col justify-between gap-2 py-2 sm:gap-3">
+            <img src="/aspire.png" alt="Aspire" className="h-14 w-14 shrink-0 sm:h-16 sm:w-16" />
+            <img src="/sls.png" alt="SLS College" className="h-14 w-14 shrink-0 sm:h-16 sm:w-16" />
+            <img src="/pu.png" alt="PU" className="h-14 w-14 shrink-0 sm:h-16 sm:w-16" />
+            <img src="/rev9.png" alt="Rev9 Solutions" className="h-14 w-14 shrink-0 sm:h-16 sm:w-16" />
+            <img src="/younow.png" alt="YouNow" className="h-12 w-16 shrink-0 sm:h-14 sm:w-20" />
           </div>
         </div>
       </section>
       {/* <Process /> */}
-      <section id="process">
+      <section id="process" className="overflow-x-hidden">
         <div
           // id="process"
-          className="w-full flex flex-col gap-12 mt-30"
+          className="w-full max-w-full flex flex-col gap-12 mt-30"
         >
           <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-8xl font-black tracking-tighter text-center">
             WHAT MY PERFECT <br /> COLLAB LOOKS LIKE
           </h1>
-          <div className="overflow-hidden  relative p-5">
+          <div className="relative overflow-hidden p-5">
             <img
               src="/introCOPY.avif"
               alt="intro"
-              className="transform -translate-x-20 sm:-translate-x-30 md:-translate-x-40 lg:-translate-x-50 rotate-5"
+              className="h-auto w-full max-w-full transform max-sm:translate-x-0 max-sm:rotate-0 -translate-x-8 rotate-3 sm:-translate-x-20 sm:rotate-5 md:-translate-x-40 lg:-translate-x-50"
             />
           </div>
-          <div className="w-full flex items-center justify-center  ">
+          <div className="mb-12 flex w-full justify-center px-4 py-10 sm:mb-16 sm:py-12 md:mb-20 md:py-16">
             <img
               src="/Joke.webp"
               alt="process"
-              className="w-[320px] sm:w-[380px] md:w-[440px] lg:w-[500px] rotate-12 rounded-2xl object-center object-cover"
+              className="h-auto w-[180px] max-w-[85vw] rounded-2xl max-sm:rotate-0 sm:w-[280px] sm:rotate-6 md:w-[380px] md:rotate-12 lg:w-[500px]"
             />
           </div>
         </div>
@@ -861,8 +835,7 @@ const Page = () => {
           <div className="relative z-10 flex flex-1 items-center justify-center px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-6xl mx-auto w-full flex flex-col items-center">
               <p className="relative z-20 caveat text-2xl sm:text-3xl md:text-4xl text-gray-500 max-w-2xl mx-auto leading-snug px-2 sm:px-4 mb-10 sm:mb-14 md:mb-16">
-                Ready to collaborate? View my CV and let&apos;s discuss your
-                next project.
+                Open to new projects—view my CV or send a brief.
               </p>
 
               {/* Button + decorative video (kept separate from text) */}
@@ -880,10 +853,10 @@ const Page = () => {
                   href="/Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative z-10 inline-flex items-center justify-center px-10 py-5 sm:px-14 sm:py-6 text-xl sm:text-2xl md:text-3xl font-semibold text-white bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 rounded-full shadow-2xl transition-all duration-300 ease-out hover:scale-105 hover:shadow-blue-500/25 focus:outline-none focus:ring-4 focus:ring-blue-500/50 active:scale-95"
+                  className="group relative z-10 inline-flex items-center justify-center px-10 py-5 sm:px-14 sm:py-6 text-xl sm:text-2xl md:text-3xl font-semibold text-black bg-gradient-to-r from-[#ffd500] via-[#facc15] to-[#ffd500] rounded-full shadow-2xl shadow-[#ffd500]/25 transition-all duration-300 ease-out hover:scale-105 hover:shadow-[#ffd500]/35 focus:outline-none focus:ring-4 focus:ring-[#ffd500]/40 active:scale-95"
                 >
                   {/* Animated background gradient */}
-                  <span className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></span>
+                  <span className="absolute inset-0 rounded-full bg-gradient-to-r from-[#facc15] via-[#ffd500] to-[#facc15] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
 
                   {/* Shine effect */}
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out rounded-full"></span>
@@ -907,7 +880,7 @@ const Page = () => {
                   </span>
 
                   {/* Outer glow ring */}
-                  <span className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-30 group-hover:opacity-60 transition-opacity duration-300"></span>
+                  <span className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#ffd500] to-[#facc15] blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></span>
                 </a>
               </div>
 

@@ -50,7 +50,7 @@ const ContactForm = () => {
       className="flex flex-col gap-3 text-left"
       noValidate
     >
-      <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden>
+      <div className="sr-only" aria-hidden>
         <label htmlFor="website">Website</label>
         <input
           id="website"
